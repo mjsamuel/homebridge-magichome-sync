@@ -4,27 +4,28 @@ from workers import StoppableThread, sync_screen
 
 sync_worker = StoppableThread(target=sync_screen)
 
+
 @route('/api/state', method='GET')
 def get_state():
-    response = { "is_syncing": sync_worker.is_alive() }
+    status = "enabled" if sync_worker.is_alive() else "disabled"
+    response = { "status": status}
 
     return json.dumps(response)
 
 
 @route('/api/state', method='POST')
 def set_state():
-    response = { "message": None }
     data = json.loads(request.body.read())
+    response = { "status": None }
 
-    if data['sync']:
-        response['message'] ="started syncing"
+    if data['status']:
+        response['status'] = "enabled"
         sync_worker.start()
     else:
-        response['message'] ="stopped syncing"
+        response['status'] = "disabled"
         if sync_worker is not None and sync_worker.is_alive():
             sync_worker.stop()
             sync_worker.join()
-
 
     return json.dumps(response)
 

@@ -1,0 +1,37 @@
+{
+  "name": "homebridge-magichome-sync",
+  "version": "0.1.0",
+  "description": "Syncs a display to your Magic Home device that's controllable with Homebridge",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "npm run clean && tsc",
+    "clean": "rm -rf ./dist",
+    "prepublishOnly": "npm run build",
+    "postpublish": "npm run clean",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Matthew Samuel",
+  "license": "MIT",
+  "homepage": "https://github.com/mjsamuel/Homebridge-MagicHome-Sync#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mjsamuel/Homebridge-MagicHome-Sync.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mjsamuel/Homebridge-MagicHome-Sync/issues"
+  },
+  "keywords": [
+    "homebridge-plugin"
+  ],
+  "engines": {
+    "homebridge": ">=1.0.0"
+  },
+  "dependencies": {
+    "axios": "^0.19.2"
+  },
+  "devDependencies": {
+    "@types/node": "10.17.19",
+    "typescript": "^3.8.3",
+    "homebridge": "^1.0.4"
+  }
+}

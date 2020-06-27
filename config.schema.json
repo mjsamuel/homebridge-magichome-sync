@@ -1,0 +1,44 @@
+{
+  "pluginAlias": "MagicHome-Sync",
+  "pluginType": "accessory",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "title": "Name",
+        "type": "string",
+        "required": true,
+        "default": "Magic Home Sync",
+        "description": "A unique name for the accessory. It will be used as the accessory name in HomeKit."
+      },
+      "host_ip": {
+        "title": "Host IP",
+        "type": "string",
+        "required": true,
+        "description": "."
+      },
+      "host_port": {
+        "title": "Port",
+        "type": "integer",
+        "placeholder": "6006",
+        "default": 6006,
+        "required": true,
+        "description": "Pi-hole port, default is 6006."
+      },
+      "light_ip": {
+        "title": "Light OP",
+        "type": "string",
+        "required": true,
+        "description": ", default is localhost."
+      },
+      "polling_interval": {
+        "title": "Polling Interval",
+        "type": "integer",
+        "placeholder": "1",
+        "default": 1,
+        "required": true,
+        "description": "Interval in seconds in which the lights are updated, default is 1."
+      }
+    }
+  }
+}
