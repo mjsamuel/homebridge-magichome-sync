@@ -1,6 +1,6 @@
 import logging, threading, time
-from mh_device import MagicHomeDevice
 from PIL import ImageGrab
+from mh_device import MagicHomeDevice
 
 
 class StoppableThread(threading.Thread):
@@ -15,9 +15,9 @@ class StoppableThread(threading.Thread):
         return self._stop_event.is_set()
 
 
-def sync_screen():
-    led_strip = MagicHomeDevice(ipaddr="192.168.2.129", setup="RGBWW")
-    led_strip.connect()
+def sync_screen(light_ip, light_type, polling_interval):
+    light = MagicHomeDevice(ipaddr=light_ip, setup=light_type)
+    light.connect()
 
     # Resolution of scaled down image
     rx = 64
@@ -43,13 +43,13 @@ def sync_screen():
 
         colour = (red, green, blue)
         if colour != prev_colour:
-            led_strip.setRgb(colour)
+            light.setRgb(colour)
             prev_colour = colour
             logging.info("RGB %3d %3d %3d Sent" % colour)
         else:
             logging.info("Same colour not sent")
 
-        time.sleep(1)
+        time.sleep(polling_interval)
 
-    led_strip.turnOff()
-    led_strip.disconnect()
+    light.turnOff()
+    light.disconnect()

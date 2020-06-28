@@ -27,6 +27,7 @@ class MagicHomeSync implements AccessoryPlugin {
 
   private readonly apiUrl: string;
   private readonly lightIp: string;
+  private readonly lightType: string;
   private readonly pollingInterval: number;
 
   private readonly switchService: Service;
@@ -38,8 +39,8 @@ class MagicHomeSync implements AccessoryPlugin {
 
     this.apiUrl = "http://" + config.host_ip + ":" + config.host_port + "/api/state"
     this.lightIp = config.light_ip
+    this.lightType = config.light_type
     this.pollingInterval = config.polling_interval
-
 
     this.switchService = new hap.Service.Switch(this.name);
 
@@ -66,6 +67,7 @@ class MagicHomeSync implements AccessoryPlugin {
         axios.post(this.apiUrl, {
           "status": status,
           "light_ip": this.lightIp,
+          "light_type": this.lightType,
           "polling_interval": this.pollingInterval
         })
         .then((response) => {
@@ -89,6 +91,5 @@ class MagicHomeSync implements AccessoryPlugin {
       this.switchService,
     ];
   }
-
 }
 

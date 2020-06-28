@@ -15,28 +15,36 @@
         "title": "Host IP",
         "type": "string",
         "required": true,
-        "description": "."
+        "description": "The IP of the host device that is running the sync progam."
       },
       "host_port": {
         "title": "Port",
         "type": "integer",
         "placeholder": "6006",
         "default": 6006,
-        "required": true,
-        "description": "Pi-hole port, default is 6006."
+        "required": false,
+        "description": "The host port, default is 6006."
       },
       "light_ip": {
-        "title": "Light OP",
+        "title": "Light IP",
         "type": "string",
         "required": true,
-        "description": ", default is localhost."
+        "description": "The IP of the light to be synced with the host."
       },
+      "light_type": {
+        "title": "Light type",
+        "type": "string",
+        "placeholder": "RGBW",
+        "default": "RGBW",
+        "required": false,
+        "description": "The Magic Home device type, being either RGB, RGBW or RGBWW, default is RGBW." 
+      }
       "polling_interval": {
         "title": "Polling Interval",
         "type": "integer",
         "placeholder": "1",
         "default": 1,
-        "required": true,
+        "required": false,
         "description": "Interval in seconds in which the lights are updated, default is 1."
       }
     }
