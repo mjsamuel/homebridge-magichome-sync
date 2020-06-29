@@ -9,34 +9,34 @@
         "type": "string",
         "required": true,
         "default": "Magic Home Sync",
-        "description": "A unique name for the accessory. It will be used as the accessory name in HomeKit."
+        "description": "A unique name for the accessory, default is Magic Home Sync"
       },
       "host_ip": {
         "title": "Host IP",
         "type": "string",
         "required": true,
-        "description": "The IP of the host device that is running the sync progam."
+        "description": "The IP address of the host display that is running the sync progam."
       },
       "host_port": {
         "title": "Port",
         "type": "integer",
         "placeholder": "6006",
         "default": 6006,
-        "required": false,
-        "description": "The host port, default is 6006."
+        "required": true,
+        "description": "The host display port, default is 6006."
       },
       "light_ip": {
         "title": "Light IP",
         "type": "string",
         "required": true,
-        "description": "The IP of the light to be synced with the host."
+        "description": "The IP address of the light to be synced with the host."
       },
       "light_type": {
         "title": "Light type",
         "type": "string",
         "placeholder": "RGBW",
         "default": "RGBW",
-        "required": false,
+        "required": true,
         "description": "The Magic Home device type, being either RGB, RGBW or RGBWW, default is RGBW." 
       },
       "polling_interval": {
@@ -44,8 +44,8 @@
         "type": "integer",
         "placeholder": "1",
         "default": 1,
-        "required": false,
-        "description": "Interval in seconds in which the lights are updated, default is 1."
+        "required": true,
+        "description": "Interval in seconds that the lights are updated in, default is 1."
       }
     }
   }
