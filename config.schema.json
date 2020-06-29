@@ -1,5 +1,5 @@
 {
-  "pluginAlias": "MagicHome-Sync",
+  "pluginAlias": "MagicHomeSync",
   "pluginType": "accessory",
   "schema": {
     "type": "object",
