@@ -38,7 +38,7 @@
         "default": "RGBW",
         "required": false,
         "description": "The Magic Home device type, being either RGB, RGBW or RGBWW, default is RGBW." 
-      }
+      },
       "polling_interval": {
         "title": "Polling Interval",
         "type": "integer",
