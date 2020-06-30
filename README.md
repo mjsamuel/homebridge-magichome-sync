@@ -9,6 +9,10 @@ This [Homebridge](https://github.com/homebridge/homebridge) plugin provides a si
 
 The result is a much more immersive viewing experience.
 
+<div align='center'>
+  <img src="https://media.giphy.com/media/VCnndOVcAY2aAEgRT6/giphy.gif" alt="Display sync demonstration">
+</div>
+
 ## Installation
 ### Homebridge
 Given that you already have [Homebridge](https://github.com/homebridge/homebridge) installed and set up, you can install this plugin with the following command: 
