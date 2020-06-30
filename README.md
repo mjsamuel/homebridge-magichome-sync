@@ -19,7 +19,12 @@ $ sudo npm install -g homebridge-magichome-sync
 ### Host Display
 A [Python version >= 3](https://www.python.org) must be used to run the host application.
 
-First you must create a virtual environment for the the projects requirements to be installed to. This can be done with the following commands:
+First you must clone the repository on the host machine using the following command.
+```
+$ git clone https://github.com/mjsamuel/Homebridge-MagicHome-Sync.git
+```
+
+After that, to create a virtual environment for all the projects dependencies to be installed into, use the following commands:
 ```
 # Create a Python virtual environment
 $ python -m venv venv
@@ -31,7 +36,7 @@ $ source ./venv/bin/activate
 $ pip install -r requirements.txt
 ```
 
-After that, to run the Python script, use the following command:
+Once all the dependencies have been installed, to run the Python script, use the following command:
 ```
 $ python run.py
 ```
