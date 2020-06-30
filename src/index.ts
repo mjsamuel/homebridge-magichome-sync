@@ -75,7 +75,11 @@ class MagicHomeSync implements AccessoryPlugin {
           callback(undefined, status === "enabled");
         })
         .catch(error => {
-          log.info("Error communicating with host")
+          if (error.response.status === 400) {
+            log.info(error.response.data["error"])
+          } else {
+            log.info("Error communicating with host")
+          }
           callback(error);
         });
       });

@@ -1,7 +1,5 @@
 import logging, threading, time
 from PIL import ImageGrab
-from mh_device import MagicHomeDevice
-
 
 class StoppableThread(threading.Thread):
     def __init__(self,  *args, **kwargs):
@@ -15,10 +13,7 @@ class StoppableThread(threading.Thread):
         return self._stop_event.is_set()
 
 
-def sync_screen(light_ip, light_type, polling_interval):
-    light = MagicHomeDevice(ipaddr=light_ip, setup=light_type)
-    light.connect()
-
+def sync_screen(light, polling_interval):
     # Resolution of scaled down image
     rx = 64
     ry = 36
@@ -52,4 +47,3 @@ def sync_screen(light_ip, light_type, polling_interval):
         time.sleep(polling_interval)
 
     light.turnOff()
-    light.disconnect()

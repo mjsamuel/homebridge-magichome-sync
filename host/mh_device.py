@@ -7,12 +7,14 @@ class MagicHomeDevice():
         self.setup = setup
 
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
-    def connect(self):
+        self.socket.settimeout(1)   
         self.socket.connect((self.ipaddr, self.port))
+        self.socket.settimeout(None)
 
-    def disconnect(self):
+
+    def __del__(self):
         self.socket.close()
+
 
     def turnOn(self, on=True):
         if on:
@@ -22,8 +24,10 @@ class MagicHomeDevice():
 
         self.__write(msg)
 
+
     def turnOff(self):
         self.turnOn(False)
+
 
     def setRgb(self, colour, persist=True):
         if persist:
@@ -45,8 +49,10 @@ class MagicHomeDevice():
         msg.append(0x0f)
         self.__write(msg)
 
+
     def __writeRaw(self, bytes):
         self.socket.send(bytes)
+
 
     def __write(self, bytes):
         # Calculate the checksum of the byte array and add to the end
