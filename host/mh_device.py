@@ -1,5 +1,6 @@
 import socket
 
+
 class MagicHomeDevice():
     def __init__(self, ipaddr, port=5577, setup="RGBW"):
         self.ipaddr = ipaddr

@@ -62,7 +62,6 @@ class MagicHomeSync implements AccessoryPlugin {
       })
       .on(CharacteristicEventTypes.SET, (value: CharacteristicValue, callback: CharacteristicSetCallback) => {
         let status = value as boolean;
-        log.info("Setting host state to: " + (status ? "enabled" : "disabled"));
 
         axios.post(this.apiUrl, {
           "status": status,
