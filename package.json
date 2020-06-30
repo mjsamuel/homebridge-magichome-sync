@@ -1,6 +1,6 @@
 {
   "name": "homebridge-magichome-sync",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Syncs a display to your Magic Home device that's controllable with Homebridge",
   "main": "dist/index.js",
   "scripts": {
