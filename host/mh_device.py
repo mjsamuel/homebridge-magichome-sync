@@ -8,7 +8,7 @@ class MagicHomeDevice():
         self.setup = setup
 
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.socket.settimeout(1)   
+        self.socket.settimeout(1)
         self.socket.connect((self.ipaddr, self.port))
         self.socket.settimeout(None)
 
@@ -36,9 +36,9 @@ class MagicHomeDevice():
         else:
             msg = bytearray([0x41])
         if (self.setup == "GRB" or self.setup == "GRBW" or self.setup == "GRBWW"):
-            msg.append(g)
-            msg.append(r)
-            msg.append(b)
+            msg.append(colour[1])
+            msg.append(colour[0])
+            msg.append(colour[2])
         if (self.setup == "RGB" or self.setup == "RGBW" or self.setup == "RGBWW"):
             msg.append(colour[0])
             msg.append(colour[1])

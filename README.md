@@ -52,12 +52,12 @@ The Python application can also be configured to run on startup using tools such
 
 ## Configuration
 ### Settings
-- `name` is the name for the accessory, default is "Magic Home Sync"
-- `host_ip` is the IP address of the host device that is running the sync program
-- `host_port` is the host display port, default is "6006"
-- `light_ip` is the IP address of the light to be synced with the host
-- `light_type` is the Magic Home device type, being either "RGB", "RGBW" or" RGBWW", default is "RGBW"
-- `polling interval` is the interval in seconds that the lights are updated in, default is 1
+  - `name` is the name for the accessory, default is "Magic Home Sync"
+  - `host_ip` is the IP address of the host device that is running the sync program
+  - `host_port` is the host display port, default is "6006"
+  - `light_ip` is the IP address of the light to be synced with the host
+  - `light_type` is the Magic Home device type, being either "RGB", "RGBW" or" RGBWW", default is "RGBW"
+  - `polling interval` is the interval in seconds that the lights are updated in, default is 1
 
 ### Example Configuration
 ```json
@@ -76,4 +76,4 @@ The Python application can also be configured to run on startup using tools such
 
 ## Acknowledgements 
 Many thanks to:
-- [Danielhiversen](https://github.com/Danielhiversen) for his [flux_led](https://github.com/Danielhiversen/flux_led) project which was stripped down and used to interface with Magic Home devices
+  - [Danielhiversen](https://github.com/Danielhiversen) for his [flux_led](https://github.com/Danielhiversen/flux_led) project which was stripped down and used to interface with Magic Home devices

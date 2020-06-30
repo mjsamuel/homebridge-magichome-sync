@@ -1,4 +1,5 @@
 import logging, json
+from socket import timeout
 from bottle import route, response, request, run
 from mh_device import MagicHomeDevice
 from workers import StoppableThread, sync_screen
@@ -32,11 +33,11 @@ def set_state():
 
             logging.info("Starting sync worker thread")
             sync_worker = StoppableThread(
-                target=sync_screen, 
+                target=sync_screen,
                 args=(light, polling_interval))
             sync_worker.start()
             message["status"] = "enabled"
-        except:
+        except timeout:
             logging.warning("Could not to connect to Magic Home device")
             response.status = 400
             message["error"] = "Could not to connect to Magic Home device"
