@@ -37,9 +37,9 @@ def set_state():
             sync_worker.start()
             message["status"] = "enabled"
         except:
-            logging.warning("Failed to connect to Magic Home device")
+            logging.warning("Could not to connect to Magic Home device")
             response.status = 400
-            message["error"] = "Failed to connect to Magic Home device"
+            message["error"] = "Could not to connect to Magic Home device"
     elif data['status'] is False and sync_worker.is_alive():
         logging.info("Stopping sync worker thread")
         sync_worker.stop()

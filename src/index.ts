@@ -47,8 +47,6 @@ class MagicHomeSync implements AccessoryPlugin {
     this.switchService
       .getCharacteristic(hap.Characteristic.On)
       .on(CharacteristicEventTypes.GET, (callback: CharacteristicGetCallback) => {
-        log.info("Getting host state");
-
         axios.get(this.apiUrl)
           .then((response) => {
             let status = response.data["status"]
@@ -56,13 +54,12 @@ class MagicHomeSync implements AccessoryPlugin {
             callback(undefined, status === "enabled");
           })
           .catch(error => {
-            log.info("Error communicating with host")
+            log.info("Failed to get host state: Error communicating with host")
             callback(error);
           });
       })
       .on(CharacteristicEventTypes.SET, (value: CharacteristicValue, callback: CharacteristicSetCallback) => {
         let status = value as boolean;
-
         axios.post(this.apiUrl, {
           "status": status,
           "light_ip": this.lightIp,
@@ -71,13 +68,14 @@ class MagicHomeSync implements AccessoryPlugin {
         })
         .then((response) => {
           let status = response.data["status"]
+          log.info("Host state has been set to: " + (status ? "enabled" : "disabled"));
           callback(undefined, status === "enabled");
         })
         .catch(error => {
-          if (error.response.status === 400) {
-            log.info(error.response.data["error"])
+          if (error.response !== undefined  && error.response.status === 400) {
+            log.info("Failed to update host state: " + error.response.data["error"])
           } else {
-            log.info("Error communicating with host")
+            log.info("Failed to update host state: Error communicating with host")
           }
           callback(error);
         });
